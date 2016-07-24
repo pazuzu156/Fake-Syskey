@@ -1,0 +1,3 @@
+syskey/bin/
+syskey/obj/
+*.suo # Don't include MS fucking hidden VS file!
