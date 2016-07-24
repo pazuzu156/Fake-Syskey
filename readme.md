@@ -17,3 +17,6 @@ To install, go to `C:\Windows\System32` and rename syskey.exe to syskey.exe.bak 
 
 ## Uninstalling
 To remove, go to `C:\Windows\System32` and delete the fake syskey, and rename syskey.exe.bak (assuming you did as I commanded....) to syskey.exe. Now, you're back in business!
+
+## Downloads
+Downloads are hosted here on [good 'ol Github](https://github.com/pazuzu156/Fake-Syskey/releases)
