@@ -15,6 +15,8 @@ Fake syskey gives a gotcha message to the scammer, wouldn't it be nice to custom
 ## Installing
 To install, go to `C:\Windows\System32` and rename syskey.exe to syskey.exe.bak (so you still have the real thing, don't wannt remove it do we?) and paste the new syskey.exe in it's place.
 
+Keep in mind, you need your account to have full access, otherwise, you'll get an error needing the "TrustedInstaller" to allow access to it. Just change the file's permissions. (Be sure to change them back once you're done as to not leave the file open for others to screw with!)
+
 ## Uninstalling
 To remove, go to `C:\Windows\System32` and delete the fake syskey, and rename syskey.exe.bak (assuming you did as I commanded....) to syskey.exe. Now, you're back in business!
 
