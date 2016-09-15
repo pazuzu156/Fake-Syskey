@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace syskey
 {
-	public partial class Form1 : Form
+	public partial class EntryForm : Form
 	{
-		public Form1()
+		public EntryForm()
 		{
 			InitializeComponent();
 		}
@@ -28,7 +28,7 @@ namespace syskey
 		private void bUpdate_Click(object sender, EventArgs e)
 		{
 			// Open a new syskey form for setting the password like they usually do
-			new Form2().ShowDialog();
+			new PasswordForm().ShowDialog();
 		}
 	}
 }
