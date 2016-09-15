@@ -1,3 +1,6 @@
 syskey/bin/
 syskey/obj/
-*.suo # Don't include MS fucking hidden VS file!
+
+# Don't include MS fucking hidden VS file!
+syskey.v12.suo
+.vs/
