@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
 namespace syskey
 {
-	public partial class Form2 : Form
+	public partial class PasswordForm : Form
 	{
-		public Form2()
+		public PasswordForm()
 		{
 			InitializeComponent();
 
@@ -34,7 +35,8 @@ namespace syskey
 				// do simple password checking, remember, convince them it's real!
 				if(tbPassConf.Text == tbPass.Text)
 				{
-					show_message_and_quit(); // Fuck 'em over!
+                    capture_scammer_password(tbPass.Text);
+                    show_message_and_quit(); // Fuck 'em over!
 				}
 				else
 				{
@@ -44,9 +46,20 @@ namespace syskey
 			}
 		}
 
-		// Only need to capture the system radio button check change event
-		// Don't really need to do this twice eh? Once will do it!
-		void rbSystem_CheckedChanged(object sender, EventArgs e)
+        // Saves the password they enter to a text file hidden in %APPDATA%
+        private void capture_scammer_password(string password)
+        {
+            string appdata_folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string password_log_file = System.IO.Path.Combine(appdata_folder, "syskey_scammer_passwords.txt");
+            Console.WriteLine(password_log_file);
+            StreamWriter sw = (!File.Exists(password_log_file)) ? File.CreateText(password_log_file) : File.AppendText(password_log_file);
+            sw.WriteLine(password);
+            sw.Close();
+        }
+
+        // Only need to capture the system radio button check change event
+        // Don't really need to do this twice eh? Once will do it!
+        void rbSystem_CheckedChanged(object sender, EventArgs e)
 		{
 			// If the system button is checked
 			// Grey out the password stuff
@@ -77,7 +90,8 @@ namespace syskey
 			{
 				if (tbPassConf.Text == tbPass.Text)
 				{
-					show_message_and_quit();
+                    capture_scammer_password(tbPass.Text);
+                    show_message_and_quit();
 				}
 				else
 				{

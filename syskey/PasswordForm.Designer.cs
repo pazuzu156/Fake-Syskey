@@ -1,6 +1,6 @@
 ﻿namespace syskey
 {
-	partial class Form2
+	partial class PasswordForm
 	{
 		/// <summary>
 		/// Required designer variable.
