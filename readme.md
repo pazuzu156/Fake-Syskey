@@ -10,7 +10,7 @@ Apon successful completion of setting the password through syskey, they're great
 To build the app, you need Visual Studio. This is built in 2013 Pro, but any version of VS from 2013+ will work. Simply run `build.bat` and follow the instructions.
 
 ## Planned Features (In the works ;))
-Fake syskey gives a gotcha message to the scammer, wouldn't it be nice to customize your own message? I'll add that in soon!
+Fake Syskey now has support for custom messages. At the moment, I'm working on a tool for creating your own with ease. Please refer to the [Custom Messages](#custom-messages) section for details
 
 ## Installing
 To install, go to `C:\Windows\System32` and rename syskey.exe to syskey.exe.bak (so you still have the real thing, don't wannt remove it do we?) and paste the new syskey.exe in it's place.
