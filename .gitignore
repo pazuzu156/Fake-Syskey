@@ -1,5 +1,8 @@
 syskey/bin/
 syskey/obj/
+MessageCreator/bin/
+MessageCreator/obj/
+Release/
 
 # Don't include MS fucking hidden VS file!
 syskey.v12.suo

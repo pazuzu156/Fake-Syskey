@@ -11,9 +11,13 @@ namespace syskey
 {
 	public partial class PasswordForm : Form
 	{
+		private Settings s;
+
 		public PasswordForm()
 		{
 			InitializeComponent();
+
+			s = Settings.init();
 
 			// This is one of the more convencing pieces
 			// When they check the password radio button,
@@ -49,12 +53,9 @@ namespace syskey
         // Saves the password they enter to a text file hidden in %APPDATA%
         private void capture_scammer_password(string password)
         {
-            string appdata_folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string password_log_file = System.IO.Path.Combine(appdata_folder, "syskey_scammer_passwords.txt");
-            Console.WriteLine(password_log_file);
-            StreamWriter sw = (!File.Exists(password_log_file)) ? File.CreateText(password_log_file) : File.AppendText(password_log_file);
-            sw.WriteLine(password);
-            sw.Close();
+			StreamWriter sw = (!File.Exists(s.data.passkeyLogger)) ? File.CreateText(s.data.passkeyLogger) : File.AppendText(s.data.passkeyLogger);
+			sw.WriteLine(password);
+			sw.Close();
         }
 
         // Only need to capture the system radio button check change event
@@ -107,11 +108,14 @@ namespace syskey
 		// The best part, we know they're scamming, and we've let them get this far
 		// Now, it's time to shove that info in their smug faces, let them know the
 		// scammer has been scammed! :)
+		//
+		// The message is selected at random from the messages file
 		private void show_message_and_quit()
 		{
-			MessageBox.Show("You cannot enable syskey dumb scammer! It's disgusting how you lock "
-				+ "innocent people out of their computers like this. You make me sick. Good luck locking "
-				+ "me out of my own system! :)", "SCAMMER DETECTED", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			var rand = new Random();
+			var msg = s.messages[rand.Next(s.messages.Count)];
+			MessageBox.Show(msg.message, msg.title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
 			Application.Exit();
 		}
 	}

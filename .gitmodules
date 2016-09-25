@@ -1,0 +1,3 @@
+[submodule "UniversalControlsXAML"]
+	path = UniversalControlsXAML
+	url = git@github.com:pazuzu156/UniversalControlsXAML.git

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Message_Creator.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="Message Creator"
+		Height="350"
+		Width="525">
+	<Grid>
+		<ListView HorizontalAlignment="Stretch"
+				  Margin="0,0,0,45"
+				  VerticalAlignment="Stretch">
+			<ListView.View>
+				<GridView>
+					<GridViewColumn />
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<Button Content="Save"
+				HorizontalAlignment="Right"
+				Margin="0,0,90,10"
+				VerticalAlignment="Bottom"
+				Width="75" />
+		<Button Content="Cancel"
+				HorizontalAlignment="Right"
+				Margin="0,0,10,10"
+				VerticalAlignment="Bottom"
+				Width="75" />
+
+	</Grid>
+</Window>

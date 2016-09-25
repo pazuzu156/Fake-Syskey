@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "syskey", "syskey\syskey.csproj", "{F343BAF2-D686-4D06-88C3-F6D28526ADD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message Creator", "MessageCreator\Message Creator.csproj", "{B2E9D886-06E9-4149-AC14-C5E30EAA7FF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalControls", "UniversalControlsXAML\src\UniversalControls.csproj", "{7E7229DD-C354-4BCF-B883-6A2CC08009F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F343BAF2-D686-4D06-88C3-F6D28526ADD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F343BAF2-D686-4D06-88C3-F6D28526ADD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F343BAF2-D686-4D06-88C3-F6D28526ADD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2E9D886-06E9-4149-AC14-C5E30EAA7FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E9D886-06E9-4149-AC14-C5E30EAA7FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E9D886-06E9-4149-AC14-C5E30EAA7FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E9D886-06E9-4149-AC14-C5E30EAA7FF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E7229DD-C354-4BCF-B883-6A2CC08009F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7229DD-C354-4BCF-B883-6A2CC08009F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7229DD-C354-4BCF-B883-6A2CC08009F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7229DD-C354-4BCF-B883-6A2CC08009F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
