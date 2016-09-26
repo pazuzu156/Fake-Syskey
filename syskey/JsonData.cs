@@ -16,9 +16,4 @@ namespace syskey
 		public string title { get; set; }
 		public string message { get; set; }
 	}
-
-	public class Messages
-	{
-		public List<Message> messages { get; set; }
-	}
 }
