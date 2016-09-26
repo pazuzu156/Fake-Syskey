@@ -1,29 +1,132 @@
 ﻿<Window x:Class="Message_Creator.MainWindow"
 		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:c="clr-namespace:Message_Creator"
 		Title="Message Creator"
 		Height="350"
-		Width="525">
-	<Grid>
-		<ListView HorizontalAlignment="Stretch"
-				  Margin="0,0,0,45"
-				  VerticalAlignment="Stretch">
-			<ListView.View>
-				<GridView>
-					<GridViewColumn />
-				</GridView>
-			</ListView.View>
-		</ListView>
-		<Button Content="Save"
-				HorizontalAlignment="Right"
-				Margin="0,0,90,10"
-				VerticalAlignment="Bottom"
-				Width="75" />
-		<Button Content="Cancel"
-				HorizontalAlignment="Right"
-				Margin="0,0,10,10"
-				VerticalAlignment="Bottom"
-				Width="75" />
+		Width="525"
+		WindowStartupLocation="CenterScreen"
+		Closing="Window_Closing"
+		FontFamily="/Message Creator;component/Resources/#Ubuntu">
+	<Window.CommandBindings>
+		<CommandBinding Command="c:Commands.Save"
+						CanExecute="SaveCommand_CanExecute"
+						Executed="SaveCommand_Executed" />
+		<CommandBinding Command="c:Commands.Import"
+						CanExecute="Command_CanExecute"
+						Executed="ImportCommand_Executed" />
+		<CommandBinding Command="c:Commands.Export"
+						CanExecute="Command_CanExecute"
+						Executed="ExportCommand_Executed" />
+		<CommandBinding Command="c:Commands.Close"
+						CanExecute="Command_CanExecute"
+						Executed="CloseCommand_Executed" />
+		<CommandBinding Command="c:Commands.Add"
+						CanExecute="Command_CanExecute"
+						Executed="AddCommand_Executed" />
+		<CommandBinding Command="c:Commands.Delete"
+						CanExecute="Command_CanExecute"
+						Executed="DeleteCommand_Executed" />
+		<CommandBinding Command="c:Commands.About"
+						CanExecute="Command_CanExecute"
+						Executed="AboutCommand_Executed" />
+	</Window.CommandBindings>
+	<DockPanel>
+		<Menu DockPanel.Dock="Top"
+			  IsMainMenu="True">
+			<MenuItem Header="File">
+				<MenuItem Command="c:Commands.Save">
+					<MenuItem.Icon>
+						<Image Source="Resources/save.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<Separator />
+				<MenuItem Command="c:Commands.Import">
+					<MenuItem.Icon>
+						<Image Source="Resources/import.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Command="c:Commands.Export">
+					<MenuItem.Icon>
+						<Image Source="Resources/export.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<Separator />
+				<MenuItem Command="c:Commands.Close">
+					<MenuItem.Icon>
+						<Image Source="Resources/close.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+			</MenuItem>
+			<MenuItem Header="Edit">
+				<MenuItem Command="c:Commands.Add">
+					<MenuItem.Icon>
+						<Image Source="Resources/add.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+				<MenuItem Command="c:Commands.Delete">
+					<MenuItem.Icon>
+						<Image Source="Resources/delete.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+			</MenuItem>
+			<MenuItem Header="Help">
+				<MenuItem Command="c:Commands.About">
+					<MenuItem.Icon>
+						<Image Source="Resources/help.png" />
+					</MenuItem.Icon>
+				</MenuItem>
+			</MenuItem>
+		</Menu>
+		<Grid DockPanel.Dock="Bottom">
+			<ListView HorizontalAlignment="Stretch"
+					  Margin="0,0,0,45"
+					  VerticalAlignment="Stretch"
+					  Name="lvMessages"
+					  MouseDoubleClick="lvMessages_MouseDoubleClick">
+				<ListView.View>
+					<GridView>
+						<GridViewColumn Header="Title"
+										Width="{Binding ElementName=titleField, Path=ActualWidth}"
+										DisplayMemberBinding="{Binding title}" />
+						<GridViewColumn Header="Message"
+										Width="{Binding ElementName=messageField, Path=ActualWidth}">
+							<GridViewColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock TextWrapping="Wrap"
+											   Text="{Binding message}" />
+								</DataTemplate>
+							</GridViewColumn.CellTemplate>
+						</GridViewColumn>
+					</GridView>
+				</ListView.View>
+			</ListView>
+			<!-- Hidden grid // For defining sizes in GridView -->
+			<Grid Visibility="Hidden">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="150" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid Grid.Column="0"
+					  x:Name="titleField" />
+				<Grid Grid.Column="1"
+					  x:Name="messageField" />
+			</Grid>
+			<Button Content="Save"
+					Command="c:Commands.Save"
+					Name="bSave"
+					HorizontalAlignment="Right"
+					Margin="0,0,90,10"
+					VerticalAlignment="Bottom"
+					Width="75" />
+			<Button Content="Cancel"
+					Name="bCancel"
+					HorizontalAlignment="Right"
+					Margin="0,0,10,10"
+					VerticalAlignment="Bottom"
+					Width="75"
+					Click="bCancel_Click" />
 
-	</Grid>
+		</Grid>
+	</DockPanel>
 </Window>

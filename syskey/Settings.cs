@@ -14,7 +14,7 @@ namespace syskey
 		private string _settingsFile;
 
 		public SettingsData data;
-		//public Messages messages;
+		//public messages messages;
 		public List<Message> messages;
 
 		/// <summary>
@@ -29,6 +29,9 @@ namespace syskey
 			return _instance;
 		}
 
+		/// <summary>
+		/// Settings object for Fake Syskey
+		/// </summary>
 		public Settings()
 		{
 			this._dumpLocation = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\fake syskey\";
@@ -40,6 +43,9 @@ namespace syskey
 				this.Create();
 		}
 
+		/// <summary>
+		/// Loads the settings file
+		/// </summary>
 		private void Load()
 		{
 			using(var reader = new StreamReader(File.Open(this._settingsFile, FileMode.Open, FileAccess.Read)))
@@ -47,10 +53,13 @@ namespace syskey
 				this.data = new JavaScriptSerializer().Deserialize<SettingsData>(reader.ReadToEnd());
 			}
 
-			this.LoadMessages();
+			this.Loadmessages();
 		}
 
-		private void LoadMessages()
+		/// <summary>
+		/// Loads the custom messages file
+		/// </summary>
+		private void Loadmessages()
 		{
 			using(var reader = new StreamReader(File.Open(data.messages, FileMode.Open, FileAccess.Read)))
 			{
@@ -58,6 +67,9 @@ namespace syskey
 			}
 		}
 
+		/// <summary>
+		/// Creates new settings and messages files
+		/// </summary>
 		private void Create()
 		{
 			if (!Directory.Exists(this._dumpLocation))
@@ -91,6 +103,10 @@ namespace syskey
 			this.Load();
 		}
 
+		/// <summary>
+		/// Save changes
+		/// </summary>
+		/// <param name="data"></param>
 		public void Save(SettingsData data = null)
 		{
 			// delete settings file if exists to prevent fucked up json output

@@ -19,8 +19,6 @@ namespace syskey
 
 	public class Messages
 	{
-		//public List<List<string>> messages { get; set; }
-		//public List<Dictionary<string, string>> messages { get; set; }
 		public List<Message> messages { get; set; }
 	}
 }

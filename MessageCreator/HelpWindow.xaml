@@ -1,0 +1,65 @@
+﻿<Window x:Class="Message_Creator.HelpWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:c="clr-namespace:Message_Creator"
+		Title="About"
+		Height="385"
+		Width="621"
+		ResizeMode="NoResize"
+		WindowStartupLocation="CenterScreen"
+		Icon="Resources/help.png"
+		FontFamily="/syskey.Message Creator;component/Resources/#Ubuntu"
+		FontSize="18">
+	<Window.CommandBindings>
+		<CommandBinding Command="c:Commands.CloseDialog"
+						CanExecute="CommandBinding_CanExecute"
+						Executed="CommandBinding_Executed" />
+	</Window.CommandBindings>
+	<Grid>
+		<TextBlock HorizontalAlignment="Stretch"
+				   Margin="10,10,10,10"
+				   TextWrapping="Wrap"
+				   VerticalAlignment="Stretch">
+			The Message creator tool is used to create custom messages for fake syskey. To add new items, press "INS" or Edit -> Add New Item
+			<LineBreak /><LineBreak />
+			To Remove a selected item, press "DEL" or Edit -> Remove Selected Item
+			<LineBreak /><LineBreak />
+			To edit a new item or edit an item already in the list, double click the item
+			<LineBreak /><LineBreak />
+			To save your changes, press the "Save" button, or Ctrl+S, or File -> Save
+			<LineBreak /><LineBreak />
+			You can import/export messages as well. To import, use Ctrl+I or File -> Import. To export, use Ctrl+E or File -> Export
+			<LineBreak /><LineBreak />
+			<Rectangle Fill="#FFF4F4F5"
+					   HorizontalAlignment="Stretch"
+					   Height="1"
+					   Margin="00,0,10,0"
+					   Width="586"
+					   Stroke="Black"
+					   VerticalAlignment="Top"
+					   RenderTransformOrigin="0.5,0.5">
+			<Rectangle.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleY="-1" />
+					<SkewTransform />
+					<RotateTransform />
+					<TranslateTransform />
+				</TransformGroup>
+			</Rectangle.RenderTransform>
+		</Rectangle>
+			<LineBreak /><LineBreak />
+			Message Creator, Fake Sysky © 2016 Kaleb Klein
+			<Label Content="http://kalebklein.com"
+				   Margin="0,0,0,-5"
+				   Style="{DynamicResource MetroLink}"
+				   Name="urlMySite"
+				   MouseDown="MySite_Clicked" />
+			<LineBreak />
+			Licensed under
+			<Label Content="MIT Open Source License"
+				   Margin="0,0,0,-5"
+				   Style="{DynamicResource MetroLink}"
+				   MouseDown="License_Clicked" />
+		</TextBlock>
+	</Grid>
+</Window>
